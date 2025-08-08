@@ -1,3 +1,4 @@
 /node_modules
-config.js
+/dist
 src/tools/config.js
+src/tools/outlets.js

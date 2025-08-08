@@ -8,54 +8,31 @@
     <div>Outlet Aktif: <span class="badge bg-success" id="outlet-name">Belum diset</span></div>
     <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-set-outlet">Set Outlet</button>
   </div>
-
-  <div class="row mb-4 small">
-    <div class="col-md-6">
-      <h6 class="fw-semibold">Storage State</h6>
-      <div id="diskProgressContainer" class="border rounded p-2" style="max-height: 170px; overflow-y: auto;">
-
+<div class="row">
+  <div class="col-md-6">
+      <div class="col-md-12">
+        <label for="">List Lagu</label>
+        <table class="table"></table>
       </div>
-
-      <p class="mt-3"><strong>Total Lagu:</strong> <span class="badge bg-info">10,320</span></p>
     </div>
-
-    <div class="col-md-6">
-      <h6 class="fw-semibold">Update List Available</h6>
-      <div class="border rounded p-2" style="max-height: 170px; overflow-y: auto;">
-        <ul id="updateListContainer" class="list-group small">
-          <!-- Isi update akan ditambahkan oleh JS -->
-        </ul>
-      </div>
-
+  <div class="col-md-6">
+    <div class="col-md-12">
+      <label for="">Update list</label>
+      <table class="table"> </table>
     </div>
-  </div>
-
-  <div class="row mb-4 small">
-    <div class="col-md-6">
-      <h6 class="fw-semibold"><strong>Download Progress</strong> <strong id="downloaded"></strong></h6>
-      <div class="progress mb-2" style="height: 20px;">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" id="downloadProgressBar" style="max-width: 100%"></div>
-      </div>
-      <p class="mb-1" id="txt-speed"></p>
-      <p class="mb-1" id="txt-progress"></p>
-      <p class="mb-0" id="txt-file"></p>
+    <div class="col-md-12">
+      <label for="">Update History</label>
+      <table class="table"></table>
     </div>
-
-    <div class="col-md-6">
-      <h6 class="fw-semibold">Updated History</h6>
-      <div class="border rounded overflow-auto" style="max-height: 130px;">
-        <ul id="updateHistoryList" class="list-group list-group-flush">
-
-        </ul>
-      </div>
-
+    <div class="col-md-12">
+      <label for="">Log</label>
+      <textarea class="form-control" id=""></textarea>
     </div>
-  </div>
-
-  <div class="d-flex justify-content-end gap-2 small">
-    <button class="btn btn-info text-white btn-sm" data-bs-toggle="modal" data-bs-target="#modal-upload-list">Upload Song List</button>
   </div>
 </div>
+</div>
+
+
 
 <div class="modal fade" id="modal-set-outlet" tabindex="-1" aria-labelledby="modalSetOutletLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -168,7 +145,118 @@
     progressUploadBar.textContent = progressUpload + '%';
   }
 
+  const updateProgress = [
+    {
+      state: 'MOVING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'WAITING_MOVE',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'DOWNLOADING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'WAITING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'DONE',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'WAITING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'WAITING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'WAITING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'WAITING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'WAITING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'WAITING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+    {
+      state: 'WAITING',
+      fileName: 'ngarit.3gp',
+      downloadPercent: 12,
+      downloadSpeed: '100MB/s',
+      movePercent: 90,
+      folderDest: '/NGANJUK'
+
+    },
+  ]
   
+
   disks.forEach(disk => {
     let color = 'info'; // default
     if (disk.percent > 80) {
