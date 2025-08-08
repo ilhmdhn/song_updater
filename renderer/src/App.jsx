@@ -19,6 +19,8 @@ function App() {
     alert('Gas Update '+version)
   }
 
+
+
   const updateAvailable = [
     '250101',
     '250102',
@@ -61,20 +63,6 @@ useEffect(() => {
     prevList.map((item) =>
       item.fileName === data.fileName? { ...item, ...data }
       : item
-    ));
-  });
-}, []);
-
-useEffect(() => {
-  window.electronAPI?.sendProgressMain?.((fileName, movePercent) => {
-    setUpdateList((prevList) =>
-    prevList.map((item) =>{
-      if(item.fileName == fileName){
-        item.movePercent = movePercent;
-      }else{
-        item
-      }
-    }
     ));
   });
 }, []);
@@ -158,29 +146,6 @@ useEffect(() => {
                         </div>
                         <div className='w-full flex justify-end'>
                           <p className='text-yellow-800 font-semibold items-center text-sm'>Memindah</p>
-                        </div>
-                      </div>
-                      <div className='w-full'>
-                        <div className="w-full flex flex-col">
-                            <div className="w-full bg-gray-200 rounded-full h-4">
-                              <div className="text-sm bg-yellow-600 h-4 rounded-full"style={{ width: `${lagu.movePercent}%`}}/>
-                            </div>
-                            <div className="flex justify-between mb-1">
-                              <span className="text-sm font-medium text-yellow-700">{lagu.movePercent}%</span>
-                            </div>
-                          </div>
-                      </div>
-                    </div>;
-                  }else if (lagu.state === 'MOVING_SECONDARY') {
-                    return <div key={index} className='w-full flex flex-col items-start shadow p-1'>
-                      <div className='w-full flex items-between'>
-                        <div className='flex items-center'>
-                          <p className='text-sm'>{lagu.location}</p>
-                          <p className='text-sm'>/</p>
-                          <p className='text-sm'>{lagu.fileName}</p>
-                        </div>
-                        <div className='w-full flex justify-end'>
-                          <p className='text-yellow-800 font-semibold items-center text-sm'>Memindah Ke Server Cadangan</p>
                         </div>
                       </div>
                       <div className='w-full'>
